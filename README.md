@@ -1,2 +1,2 @@
 # testing-practices
-Includes testing practices of a simple RESTful service.
+Includes testing practices for a simple Spring based RESTful service.
