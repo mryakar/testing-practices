@@ -7,7 +7,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TestBaseEntity {
 
-    private static class ConcreteBaseEntity extends BaseEntity {}
+    private static class ConcreteBaseEntity extends BaseEntity {
+    }
 
     @Test
     @DisplayName("Two identical base entities must be equal and have same hashcode respect to their ids.")
