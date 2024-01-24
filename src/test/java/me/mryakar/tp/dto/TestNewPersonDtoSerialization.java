@@ -53,9 +53,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 
     }
 
-    @DisplayName("New Person JSON should be deserialized to NewPersonDto successfully.")
+    @DisplayName("A valid JSON for a new person should be deserialized to NewPersonDto successfully.")
     @Test
-    void Should_SuccessfullyDeserializeToObject_When_IfNewPersonDtoJsonIsValid() throws IOException {
+    void Should_SuccessfullyDeserializeToNewPersonDto_IfInputJsonIsValid() throws IOException {
         String initialJson = """
                      {
                         "name": "name",
