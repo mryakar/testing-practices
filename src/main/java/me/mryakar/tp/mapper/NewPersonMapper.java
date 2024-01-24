@@ -7,6 +7,6 @@ import org.mapstruct.MappingConstants;
 import org.mapstruct.ReportingPolicy;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)
-public interface NewPersonEntityMapper {
+public interface NewPersonMapper {
     PersonEntity toEntity(NewPersonDto newPersonDto);
 }

@@ -7,7 +7,7 @@ import me.mryakar.tp.dao.PersonRepository;
 import me.mryakar.tp.dto.NewPersonDto;
 import me.mryakar.tp.dto.PersonDto;
 import me.mryakar.tp.entity.PersonEntity;
-import me.mryakar.tp.mapper.NewPersonEntityMapper;
+import me.mryakar.tp.mapper.NewPersonMapper;
 import me.mryakar.tp.mapper.PersonMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,11 +23,11 @@ public class PersonServiceImpl implements PersonService {
 
     private final PersonRepository repository;
     private final PersonMapper mapper;
-    private final NewPersonEntityMapper newPersonMapper;
+    private final NewPersonMapper newPersonMapper;
 
     @Transactional
     @Override
-    public Long create(NewPersonDto dto) {
+    public PersonDto create(NewPersonDto dto) {
         boolean existsInDataSource = repository.existsByNameAndSurnameAndAge(dto.name(), dto.surname(), dto.age());
         if (existsInDataSource) {
             throw new EntityExistsException(ALREADY_EXISTED_PERSON_ERROR_MESSAGE);
@@ -36,7 +36,7 @@ public class PersonServiceImpl implements PersonService {
         PersonEntity entity = newPersonMapper.toEntity(dto);
         repository.save(entity);
 
-        return entity.getId();
+        return mapper.toDto(entity);
     }
 
     @Transactional(readOnly = true)
@@ -54,7 +54,7 @@ public class PersonServiceImpl implements PersonService {
 
     @Transactional
     @Override
-    public void delete(Long id) {
+    public void deleteById(Long id) {
         PersonEntity entity = repository.findById(id).orElseThrow(() -> new EntityNotFoundException(NO_SUCH_PERSON_ERROR_MESSAGE));
         repository.delete(entity);
     }

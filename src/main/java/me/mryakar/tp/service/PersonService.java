@@ -6,11 +6,11 @@ import me.mryakar.tp.dto.PersonDto;
 import java.util.List;
 
 public interface PersonService {
-    Long create(NewPersonDto dto);
+    PersonDto create(NewPersonDto dto);
 
     List<PersonDto> read();
 
     void update(PersonDto dto);
 
-    void delete(Long id);
+    void deleteById(Long id);
 }
