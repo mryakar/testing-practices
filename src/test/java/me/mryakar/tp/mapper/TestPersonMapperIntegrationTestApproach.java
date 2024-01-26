@@ -11,8 +11,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-class TestPersonMapper {
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+class TestPersonMapperIntegrationTestApproach {
 
     @Autowired
     PersonMapper mapper;

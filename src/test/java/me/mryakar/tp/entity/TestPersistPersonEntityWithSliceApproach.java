@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @DataJpaTest
-class TestPersistPersonEntity {
+class TestPersistPersonEntityWithSliceApproach {
 
     @Autowired
     PersonRepository repository;
